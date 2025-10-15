@@ -25,13 +25,10 @@ This group project was created to practice front-end design, layout styling, and
 ---
 
 ### 🎥 Hero Section
-![Hero Screenshot](./images/hero.png)
+![Hero Screenshot](net1.png)
 
 ### 🔥 Trending Section
-![Trending Screenshot](./images/trending.png)
-
-### 💻 Features Section
-![Features Screenshot](./images/features.png)
+![Trending Screenshot](net2.png)
 
 ---
 ## 🧑‍💻 Technologies Used  
