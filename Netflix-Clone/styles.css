@@ -1,0 +1,298 @@
+:root {
+  --red: #e50914;
+  --dark: #000;
+  --gray: #303030;
+  --light: #fff;
+  --container: 1100px;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  background-color: var(--dark);
+  color: var(--light);
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+/* GENERAL RESET */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* HEADER */
+.header {
+  position: absolute; /* ensures it stays on top of hero */
+  top: 0;
+  width: 100%;
+  padding: 20px 0;
+  z-index: 10; /* higher than hero elements */
+  display: flex;
+}
+
+.header-inner {
+  width: 90%;
+  max-width: 1200px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  height: 40px;
+}
+
+.header-buttons {
+  display: flex;
+  gap: 10px;
+}
+
+.btn-signin {
+  background-color: #e50914;
+  color: #fff;
+  border: none;
+  padding: 8px 16px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+/* HERO SECTION */
+.hero {
+  position: relative;
+  height: 90vh; /* full viewport height */
+  overflow: hidden;
+}
+
+.hero-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 1;
+}
+
+.hero-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.5); /* dark overlay */
+  z-index: 2;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 3; /* above overlay and image */
+  color: #fff;
+  text-align: center;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.hero-form {
+  margin-top: 20px;
+}
+
+.hero-form input {
+  padding: 10px;
+  width: 250px;
+  max-width: 70%;
+  border: none;
+  outline: none;
+}
+
+.btn-primary {
+  padding: 10px 20px;
+  background-color: #e50914;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+}
+
+/* ---------- TRENDING NOW ---------- */
+.trending {
+  padding: 3rem 0;
+  text-align: center;
+}
+.trending h2 {
+  font-size: 1.8rem;
+  margin-bottom: 1rem;
+}
+.trending-row {
+  display: flex;
+  gap: 1rem;
+  overflow-x: auto;
+  padding-bottom: 1rem;
+}
+.movie-card {
+  position: relative;
+  flex: 0 0 150px;
+}
+.movie-card img {
+  width: 100%;
+  border-radius: 6px;
+  transition: transform 0.3s ease;
+}
+.movie-card:hover img {
+  transform: scale(1.05);
+}
+.rank {
+  position: absolute;
+  bottom: 10px;
+  left: 10px;
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #fff;
+  text-shadow: 2px 2px 5px #000;
+}
+
+/* ---------- TRENDING ARROWS ---------- */
+.trending-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.scroll-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(0, 0, 0, 0.5);
+  border: none;
+  color: white;
+  font-size: 2rem;
+  padding: 0.5rem 0.8rem;
+  cursor: pointer;
+  border-radius: 50%;
+  z-index: 10;
+  transition: background 0.3s;
+}
+
+.scroll-btn:hover {
+  background: rgba(255, 255, 255, 0.3);
+}
+
+.scroll-btn.left {
+  left: -15px;
+}
+
+.scroll-btn.right {
+  right: -15px;
+}
+
+/* Make sure arrows stay visible only on hover (like Netflix) */
+.trending-wrapper:hover .scroll-btn {
+  opacity: 1;
+  visibility: visible;
+}
+
+.scroll-btn {
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s;
+}
+
+
+/* ---------- MORE REASONS ---------- */
+.reasons {
+  padding: 3rem 0;
+  background-color: #000;
+}
+.reasons h2 {
+  font-size: 1.8rem;
+  margin-bottom: 2rem;
+  text-align: center;
+}
+.reason-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.5rem;
+}
+.reason-card {
+  background: #1a1a1a;
+  padding: 2rem;
+  border-radius: 10px;
+  text-align: left;
+}
+.reason-card h3 {
+  font-size: 1.2rem;
+  margin-bottom: 0.8rem;
+}
+.reason-card p {
+  color: #bbb;
+  font-size: 1rem;
+  line-height: 1.5;
+}
+
+/* Scrollbar hidden for cleaner horizontal scroll */
+.trending-row::-webkit-scrollbar {
+  display: none;
+}
+
+
+/* ---------- FAQ ---------- */
+.faq { padding: 3rem 0; text-align: center; }
+.faq-item {
+  margin: 1rem auto;
+  max-width: 800px;
+}
+.faq-question {
+  width: 100%;
+  background: var(--gray);
+  color: var(--light);
+  text-align: left;
+  padding: 1rem;
+  font-size: 1.1rem;
+  border: none;
+  cursor: pointer;
+}
+.faq-answer {
+  display: none;
+  background: #222;
+  padding: 1rem;
+  text-align: left;
+}
+.faq-question:focus + .faq-answer,
+.faq-question:hover + .faq-answer {
+  display: block;
+}
+
+/* ---------- FOOTER ---------- */
+.footer {
+  background: #000;
+  color: #777;
+  border-top: 8px solid var(--gray);
+  padding: 2rem 0;
+  text-align: center;
+}
+.footer-links {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin: 1rem 0;
+}
+.footer-links a { color: #777; text-decoration: none; font-size: 0.9rem; }
+.footer-links a:hover { text-decoration: underline; }
+
+/* ---------- RESPONSIVE ---------- */
+@media (max-width: 768px) {
+  .feature { flex-direction: column; }
+  .feature-img { width: 100%; margin-top: 1rem; }
+  .hero-content h2 { font-size: 1.8rem; }
+}
+
+.lang-select{
+    background-color: rgb(0, 0, 0);
+    color: white;
+    border: 1px solid rgb(2, 2, 2);
+    padding: 5px;
+    border-radius: 5px;
+    font-size: 1rem;
+}
